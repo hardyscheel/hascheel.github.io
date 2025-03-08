@@ -25,7 +25,7 @@ A Wake-on-LAN (WOL) Magic Packet is a special network packet that is used to act
 - It consists of a 6-byte header (`0xFF`) and 16 repetitions of the target device's MAC address.
 - The packet is sent via UDP to the broadcast address and is detected by the target device's network card.
 
-### **Theory Behind Wake-on-LAN**
+### Theory Behind Wake-on-LAN
 1. **Requirements**:
    - The target device's network card must support Wake-on-LAN.
    - Wake-on-LAN must be enabled in the BIOS/UEFI and network card settings.
@@ -37,7 +37,7 @@ A Wake-on-LAN (WOL) Magic Packet is a special network packet that is used to act
 
 ---
 
-### **Structure of the Magic Packet**
+### Structure of the Magic Packet
 The Magic Packet is a UDP packet with a specific structure. It consists of two main parts:
 
 1. **Header**:
@@ -51,15 +51,14 @@ The Magic Packet is a UDP packet with a specific structure. It consists of two m
 ---
 
 #### ***Magic Packet Structure***
-| Part             | Size (Bytes) | Content                                   |
-|------------------|--------------|------------------------------------------|
-| Header           | 6            | `0xFF 0xFF 0xFF 0xFF 0xFF 0xFF`         |
-| MAC Address (x16)| 96           | 16 repetitions of the MAC address        |
-| **Total**        | **102**      |                                          |
+
+![magic-paket-structure][magic-paket-structure]
+
+[magic-paket-structure]: /img/2025-03-08-theory-behind-wake-on-lan/magic-paket-structure.png "magic-paket-structure"
 
 ---
 
-### **Example**
+### Example
 Assume the MAC address of the target device is `00:11:22:33:44:55`. The Magic Packet would look like this:
 
 1. **Header**:  
@@ -73,14 +72,14 @@ The complete Magic Packet in hexadecimal representation:
 
 ---
 
-### **Transmission of the Magic Packet**
+### Transmission of the Magic Packet
 - **Protocol**: UDP (User Datagram Protocol).
 - **Destination Address**: The broadcast address of the network (e.g., `255.255.255.255`).
 - **Port**: By default, port 7 (Echo) or 9 (Discard), but any other port can be used.
 
 ---
 
-### **Why 16 Repetitions of the MAC Address?**
+### Why 16 Repetitions of the MAC Address?
 The 16 repetitions of the MAC address ensure that the packet is recognized even if there are packet losses or errors in the network. This increases the reliability of the Wake-on-LAN mechanism.
 
 ---
