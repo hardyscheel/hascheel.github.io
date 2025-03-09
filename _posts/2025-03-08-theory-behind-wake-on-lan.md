@@ -52,9 +52,7 @@ The Magic Packet is a UDP packet with a specific structure. It consists of two m
 
 #### ***Magic Packet Structure***
 
-![magic-paket-structure][magic-paket-structure]
-
-[magic-paket-structure]: /img/2025-03-08-theory-behind-wake-on-lan/magic-paket-structure.png "magic-paket-structure"
+![Magic Paket Structure](/img/2025-03-08-theory-behind-wake-on-lan/magic-paket-structure.png)
 
 ---
 
